@@ -1,0 +1,16 @@
+{
+  "name": "Yasharth Singhal — MERN Stack Developer",
+  "short_name": "Yasharth Dev",
+  "description": "Portfolio of Yasharth Singhal, a MERN Stack Developer and MCA student.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0f0f",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build outputs
+dist/
+build/
+client/dist/
+server/dist/
+
+# Python virtual environments
+.venv/
+venv/
+
+# Environment
+.env
+.env.*
+.env.local
+.env.*.local
+!**/.env.example
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Misc cache
+.cache/
+.eslintcache
