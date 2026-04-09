@@ -608,12 +608,12 @@ button {
 }
 
 .hero-section {
-  min-height: min(860px, calc(100vh - 6rem));
+  min-height: min(800px, calc(100vh - 6rem));
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
   gap: clamp(2rem, 4vw, 4.5rem);
   align-items: center;
-  padding: clamp(2rem, 6vw, 4rem) 0 clamp(2.8rem, 6vw, 5rem);
+  padding: clamp(1.35rem, 4.5vw, 3rem) 0 clamp(1.6rem, 3.8vw, 3rem);
 }
 
 .eyebrow {
@@ -750,11 +750,11 @@ button {
 
 .hero-visual {
   position: relative;
-  min-height: 620px;
+  min-height: 610px;
 }
 
 [data-theme='light'] .hero-visual {
-  min-height: 600px;
+  min-height: 590px;
 }
 
 .hero-orbit {
@@ -817,7 +817,8 @@ button {
 
 .hero-card-shell {
   position: absolute;
-  inset: 8% 5% 4%;
+  inset: 6% 5% 7%;
+  z-index: 2;
   padding: 1px;
   border-radius: var(--radius-xl);
   background: linear-gradient(
@@ -1078,6 +1079,16 @@ button {
   color: var(--muted-strong);
 }
 
+.hero-card-footer > div {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.hero-card-footer strong {
+  display: block;
+  line-height: 1.32;
+}
+
 [data-theme='light'] .hero-card-footer {
   color: #223459;
 }
@@ -1278,6 +1289,35 @@ button {
   justify-content: space-between;
   gap: 1rem;
   margin-bottom: 1.3rem;
+}
+
+.mobile-filter-wrap {
+  display: none;
+}
+
+.mobile-filter-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mobile-filter-select {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.75rem 0.95rem;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(160, 180, 255, 0.18);
+  background: rgba(8, 12, 28, 0.72);
+  color: var(--text);
+}
+
+[data-theme='light'] .mobile-filter-select {
+  border-color: rgba(94, 124, 196, 0.22);
+  background: rgba(255, 255, 255, 0.95);
+  color: #1a335f;
 }
 
 .skills-toolbar {
@@ -2447,11 +2487,32 @@ textarea:focus-visible {
   }
 
   .hero-visual {
-    min-height: 420px;
+    min-height: 760px;
   }
 
   .hero-card-shell {
-    inset: 16% 0 0;
+    inset: 10% 0.25rem 0;
+  }
+
+  .hero-card {
+    padding: 1.1rem;
+  }
+
+  .hero-card h2 {
+    font-size: clamp(1.55rem, 8vw, 2rem);
+  }
+
+  .hero-card-grid {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+
+  .hero-card-footer {
+    padding-top: 0.75rem;
+  }
+
+  .tech-orbit-card {
+    display: none;
   }
 
   .loader-signature {
@@ -2474,8 +2535,13 @@ textarea:focus-visible {
     height: 3.6rem;
   }
 
-  .tech-orbit-card {
-    scale: 0.9;
+  .filter-row {
+    display: none;
+  }
+
+  .mobile-filter-wrap {
+    display: block;
+    margin-bottom: 1rem;
   }
 
   .assistant-shell {

@@ -254,6 +254,11 @@ function App() {
   }, [showLoader])
 
   useEffect(() => {
+    if (activeSection !== 'home') {
+      setTypedHeroText(rotatingHeroRoles[0])
+      return
+    }
+
     let roleIndex = 0
     let characterIndex = 0
     let deleting = false
@@ -288,7 +293,7 @@ function App() {
 
     tick()
     return () => window.clearTimeout(timeout)
-  }, [])
+  }, [activeSection])
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -918,6 +923,26 @@ function App() {
             ))}
           </div>
 
+          <div className="mobile-filter-wrap">
+            <label className="mobile-filter-label" htmlFor="project-filter-mobile">
+              Project Category
+            </label>
+            <select
+              id="project-filter-mobile"
+              className="mobile-filter-select"
+              value={projectFilter}
+              onChange={(event) =>
+                setProjectFilter(event.target.value as (typeof projectFilters)[number])
+              }
+            >
+              {projectFilters.map((filter) => (
+                <option key={filter} value={filter}>
+                  {filter}
+                </option>
+              ))}
+            </select>
+          </div>
+
           <motion.div
             className="projects-grid"
             variants={staggerContainer}
@@ -956,6 +981,31 @@ function App() {
               )
             )}
           </div>
+
+          <div className="mobile-filter-wrap">
+            <label className="mobile-filter-label" htmlFor="blog-filter-mobile">
+              Blog Category
+            </label>
+            <select
+              id="blog-filter-mobile"
+              className="mobile-filter-select"
+              value={blogFilter}
+              onChange={(event) =>
+                setBlogFilter(
+                  event.target.value as BlogPost['category'] | 'All'
+                )
+              }
+            >
+              {(['All', 'Backend', 'Frontend', 'DB', 'Security', 'DevOps'] as const).map(
+                (filter) => (
+                  <option key={filter} value={filter}>
+                    {filter}
+                  </option>
+                )
+              )}
+            </select>
+          </div>
+
           <div className="blog-grid">
             {filteredBlogs.map((blog) => (
               <article key={blog.id} className="glass-panel blog-card">
