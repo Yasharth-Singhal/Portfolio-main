@@ -2479,7 +2479,8 @@ textarea:focus-visible {
   }
 
   .hero-section {
-    gap: 2rem;
+    gap: 1.4rem;
+    padding-bottom: 1rem;
   }
 
   .hero-copy h1 {
@@ -2487,14 +2488,17 @@ textarea:focus-visible {
   }
 
   .hero-visual {
-    min-height: 760px;
+    min-height: auto;
   }
 
   .hero-card-shell {
-    inset: 10% 0.25rem 0;
+    position: relative;
+    inset: auto;
+    margin-top: 0.35rem;
   }
 
   .hero-card {
+    height: auto;
     padding: 1.1rem;
   }
 
@@ -2508,6 +2512,7 @@ textarea:focus-visible {
   }
 
   .hero-card-footer {
+    margin-top: 0.95rem;
     padding-top: 0.75rem;
   }
 
