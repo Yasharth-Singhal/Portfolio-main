@@ -153,14 +153,6 @@ const particles = [
   { top: '84%', left: '38%', size: 4, delay: 2.6 },
 ]
 
-const rotatingHeroRoles = [
-  profile.role,
-  'Full-Stack Developer',
-  'React Frontend Developer',
-  'Node.js Backend Developer',
-  'Open to Internship Roles',
-]
-
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 28 },
   visible: {
@@ -209,7 +201,6 @@ function App() {
     message: '',
   })
   const [isSubmittingContact, setIsSubmittingContact] = useState(false)
-  const [typedHeroText, setTypedHeroText] = useState('')
   const [chatOpen, setChatOpen] = useState(false)
   const [chatInput, setChatInput] = useState('')
   const [chatTyping, setChatTyping] = useState(false)
@@ -252,48 +243,6 @@ function App() {
       document.body.style.overflow = ''
     }
   }, [showLoader])
-
-  useEffect(() => {
-    if (activeSection !== 'home') {
-      setTypedHeroText(rotatingHeroRoles[0])
-      return
-    }
-
-    let roleIndex = 0
-    let characterIndex = 0
-    let deleting = false
-    let timeout = 0
-
-    const tick = () => {
-      const role = rotatingHeroRoles[roleIndex]
-
-      if (!deleting) {
-        characterIndex += 1
-        setTypedHeroText(role.slice(0, characterIndex))
-
-        if (characterIndex === role.length) {
-          deleting = true
-          timeout = window.setTimeout(tick, 1250)
-          return
-        }
-      } else {
-        characterIndex = Math.max(0, characterIndex - 1)
-        setTypedHeroText(role.slice(0, characterIndex))
-
-        if (characterIndex === 0) {
-          deleting = false
-          roleIndex = (roleIndex + 1) % rotatingHeroRoles.length
-          timeout = window.setTimeout(tick, 240)
-          return
-        }
-      }
-
-      timeout = window.setTimeout(tick, deleting ? 38 : 70)
-    }
-
-    tick()
-    return () => window.clearTimeout(timeout)
-  }, [activeSection])
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -675,12 +624,9 @@ function App() {
             </motion.div>
             <motion.h1 variants={fadeUp}>
               <span className="typing-line">
-                {`Hi, I'm ${profile.name} - `}
-                <span className="typing-dynamic">
-                  <span className="typing-role">{typedHeroText}</span>
-                  <span className="typing-caret" />
-                </span>
+                {`Hi, I'm ${profile.name}`}
               </span>
+              <span className="hero-role-static">MERN Full-Stack Developer</span>
             </motion.h1>
             <motion.p className="hero-description" variants={fadeUp}>
               {profile.shortBio}

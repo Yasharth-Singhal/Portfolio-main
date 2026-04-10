@@ -667,22 +667,22 @@ button {
   -webkit-text-fill-color: transparent;
 }
 
-.typing-dynamic {
-  display: inline-flex;
-  align-items: flex-end;
-  gap: 0.06em;
-  white-space: nowrap;
-}
-
-.typing-role {
-  font-size: 0.84em;
+.hero-role-static {
+  display: block;
+  margin-top: 0.12em;
+  font-size: 0.8em;
   letter-spacing: -0.04em;
+  color: #a8b7dc;
 }
 
 [data-theme='light'] .typing-line {
   background: linear-gradient(135deg, #173a7b 0%, #0f8fe8 48%, #7055f6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+[data-theme='light'] .hero-role-static {
+  color: #48608a;
 }
 
 .typing-caret {
