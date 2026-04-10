@@ -676,9 +676,11 @@ function App() {
             <motion.h1 variants={fadeUp}>
               <span className="typing-line">
                 {`Hi, I'm ${profile.name} - `}
-                <span className="typing-role">{typedHeroText}</span>
+                <span className="typing-dynamic">
+                  <span className="typing-role">{typedHeroText}</span>
+                  <span className="typing-caret" />
+                </span>
               </span>
-              <span className="typing-caret" />
             </motion.h1>
             <motion.p className="hero-description" variants={fadeUp}>
               {profile.shortBio}
