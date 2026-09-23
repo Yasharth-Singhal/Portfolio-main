@@ -1,4 +1,4 @@
-﻿import {
+import {
   Suspense,
   lazy,
   startTransition,
@@ -105,9 +105,11 @@ const navItems = [
 
 const skillCategories = [
   'Languages',
+  'AI / GenAI',
   'Frontend',
-  'Backend & Databases',
-  'Tools & Core',
+  'Backend & APIs',
+  'Databases',
+  'Cloud & Tools',
 ] as const
 
 const skillCategoryMeta: Record<
@@ -118,9 +120,11 @@ const skillCategoryMeta: Record<
   }
 > = {
   Languages: { icon: SiTypescript, chip: 'Core logic' },
+  'AI / GenAI': { icon: SiOpenai, chip: 'LLMs + RAG + Agents' },
   Frontend: { icon: SiReact, chip: 'UI systems' },
-  'Backend & Databases': { icon: SiMongodb, chip: 'APIs + data' },
-  'Tools & Core': { icon: FiCommand, chip: 'Workflow stack' },
+  'Backend & APIs': { icon: SiNodedotjs, chip: 'REST APIs + WebSockets' },
+  Databases: { icon: SiMongodb, chip: 'NoSQL + Relational + Vector' },
+  'Cloud & Tools': { icon: FiCommand, chip: 'AWS + Docker + CI/CD' },
 }
 
 const techOrbit: Array<{ icon: IconType; label: string; className: string }> = [
@@ -1473,7 +1477,7 @@ function SkillBarRow({ skill }: { skill: Skill }) {
           <strong>{skill.name}</strong>
           <span>{skill.years}</span>
         </div>
-        <em>{skill.level}%</em>
+        <em>{skill.proficiency}</em>
       </div>
       <div className="skill-bar-wrap">
         <div className="skill-bar-track">
